@@ -2,45 +2,41 @@
 
 int main()
 {
-    char studentName[50];
-    float test1, test2, assignment, total;
+    char supplierName[50];
+    float price;
+    float budget;
+    int registered;
+    int documentsComplete;
 
-   
-    printf("Enter Student Name: ");
-    scanf("%49s", studentName);
+    printf("Enter supplier name: ");
+    scanf("%49s", supplierName);
 
-    printf("Enter Test 1 Mark: ");
-    scanf("%f", &test1);
+    printf("Enter tender price: ");
+    scanf("%f", &price);
 
-    printf("Enter Test 2 Mark: ");
-    scanf("%f", &test2);
+    printf("Enter available budget: ");
+    scanf("%f", &budget);
 
-    printf("Enter Assignment Mark: ");
-    scanf("%f", &assignment);
+    printf("Is supplier registered? (1=Yes, 0=No): ");
+    scanf("%d", &registered);
 
-    
-    total = test1 + test2 + assignment;
+    printf("Are all documents complete? (1=Yes, 0=No): ");
+    scanf("%d", &documentsComplete);
 
-
-    printf("\nStudent Name: %s\n", studentName);
-    printf("Total Mark:   %.2f\n", total);
-
-    
-    if (total >= 75.0)
+    if (registered == 0 || documentsComplete == 0)
     {
-        printf("Result: Distinction\n");
+        printf("\nSupplier: %s\n", supplierName);
+        printf("Status: Disqualified\n");
     }
-    else if (total >= 60.0)
+    else if (price > budget)
     {
-        printf("Result: Credit\n");
-    }
-    else if (total >= 50.0)
-    {
-        printf("Result: Pass\n");
+        printf("\nSupplier: %s\n", supplierName);
+        printf("Status: Disqualified\n");
     }
     else
     {
-        printf("Result: Fail\n");
+        printf("\nSupplier: %s\n", supplierName);
+        printf("Status: Qualified\n");
     }
 
     return 0;
